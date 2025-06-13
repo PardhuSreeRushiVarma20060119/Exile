@@ -4,7 +4,7 @@ Test suite for Exile-SafeWork Framework
 Tests the core functionality and modules without executing real malicious operations
 """
 
-import unittest
+import pytest
 import sys
 import os
 import tempfile
@@ -20,7 +20,7 @@ from core.dispatch import dispatch_command
 from modules.dropperlab.dropper import simulate_dropper, simulate_persistence, simulate_execution
 
 
-class TestCoreBanner(unittest.TestCase):
+class TestCoreBanner:
     """Test the banner display functionality"""
     
     def test_show_banner(self):
@@ -31,14 +31,14 @@ class TestCoreBanner(unittest.TestCase):
             
             # Check that banner contains expected elements
             # Note: EXILE is displayed as ASCII art, not plain text
-            self.assertIn("SAFE WORK EMULATION FRAMEWORK", output)
-            self.assertIn("v1.0.4", output)
-            self.assertIn("Emulates Real Ops Without Real Payloads", output)
+            assert "SAFE WORK EMULATION FRAMEWORK" in output
+            assert "v1.0.4" in output
+            assert "Emulates Real Ops Without Real Payloads" in output
             # Check for some ASCII art characters to confirm banner is displayed
-            self.assertIn("▄████████", output)
+            assert "▄████████" in output
 
 
-class TestCoreDispatch(unittest.TestCase):
+class TestCoreDispatch:
     """Test the command dispatch functionality"""
     
     def test_invalid_command(self):
@@ -47,7 +47,7 @@ class TestCoreDispatch(unittest.TestCase):
             dispatch_command("invalid_command")
             output = mock_stdout.getvalue()
             
-            self.assertIn("[!] Unknown command: invalid_command", output)
+            assert "[!] Unknown command: invalid_command" in output
 
     def test_valid_command_dropperlab(self):
         """Test that dropperlab command works"""
@@ -56,10 +56,11 @@ class TestCoreDispatch(unittest.TestCase):
             mock_dropper.assert_called_once()
 
 
-class TestDropperLab(unittest.TestCase):
+class TestDropperLab:
     """Test the dropper lab functionality"""
     
-    def setUp(self):
+    @pytest.fixture(autouse=True)
+    def setup_test_environment(self):
         """Set up test environment"""
         self.test_dir = tempfile.mkdtemp()
         self.test_payload = os.path.join(self.test_dir, "test_payload.exe")
@@ -67,9 +68,10 @@ class TestDropperLab(unittest.TestCase):
         # Create a dummy payload file
         with open(self.test_payload, 'w') as f:
             f.write("dummy payload content")
-    
-    def tearDown(self):
-        """Clean up test environment"""
+        
+        yield  # This is where the test runs
+        
+        # Cleanup after test
         if os.path.exists(self.test_dir):
             shutil.rmtree(self.test_dir)
     
@@ -85,11 +87,11 @@ class TestDropperLab(unittest.TestCase):
         output = mock_stdout.getvalue()
         
         # Check that payload was "dropped"
-        self.assertIn("[+] Payload successfully dropped", output)
+        assert "[+] Payload successfully dropped" in output
         
         # Verify the file was copied
         target_path = os.path.join(dest_dir, "test_payload.exe")
-        self.assertTrue(os.path.exists(target_path))
+        assert os.path.exists(target_path)
         
         # Verify simulation functions were called
         mock_persist.assert_called_once_with(target_path)
@@ -104,7 +106,7 @@ class TestDropperLab(unittest.TestCase):
             simulate_dropper(invalid_payload, dest_dir)
         
         output = mock_stdout.getvalue()
-        self.assertIn("[!] Payload file does not exist", output)
+        assert "[!] Payload file does not exist" in output
     
     def test_simulate_persistence(self):
         """Test persistence simulation"""
@@ -116,8 +118,8 @@ class TestDropperLab(unittest.TestCase):
                     simulate_persistence(test_path)
         
         output = mock_stdout.getvalue()
-        self.assertIn("[*] Simulating persistence", output)
-        self.assertIn("[+] Technique used: Test Technique", output)
+        assert "[*] Simulating persistence" in output
+        assert "[+] Technique used: Test Technique" in output
     
     def test_simulate_execution(self):
         """Test execution simulation"""
@@ -128,23 +130,23 @@ class TestDropperLab(unittest.TestCase):
                 simulate_execution(test_path)
         
         output = mock_stdout.getvalue()
-        self.assertIn("[*] Simulating execution", output)
-        self.assertIn("[+] Simulated process launch", output)
+        assert "[*] Simulating execution" in output
+        assert "[+] Simulated process launch" in output
 
 
-class TestMainApplication(unittest.TestCase):
+class TestMainApplication:
     """Test the main application loop"""
     
     def test_exile_main_can_be_imported(self):
         """Test that the main exile module can be imported"""
         try:
             import exile
-            self.assertTrue(hasattr(exile, 'main'), "Main function exists")
+            assert hasattr(exile, 'main'), "Main function exists"
         except ImportError:
-            self.skipTest("Exile main module not accessible from test location")
+            pytest.skip("Exile main module not accessible from test location")
 
 
-class TestSafetyChecks(unittest.TestCase):
+class TestSafetyChecks:
     """Test that the framework maintains safety boundaries"""
     
     def test_no_real_malware_execution(self):
@@ -161,7 +163,7 @@ class TestSafetyChecks(unittest.TestCase):
                 simulate_execution(test_path)
         
         # If we reach this point, no actual malicious operations were performed
-        self.assertTrue(True, "Safety check passed - no real operations executed")
+        assert True, "Safety check passed - no real operations executed"
     
     def test_file_operations_are_safe(self):
         """Test that file operations only work with test files"""
@@ -180,15 +182,15 @@ class TestSafetyChecks(unittest.TestCase):
             
             # Verify file was copied (safe operation)
             copied_file = os.path.join(dest_dir, "safe_test.txt")
-            self.assertTrue(os.path.exists(copied_file))
+            assert os.path.exists(copied_file)
             
             # Verify content is unchanged (no modification)
             with open(copied_file, 'r') as f:
                 content = f.read()
-            self.assertEqual(content, "safe test content")
+            assert content == "safe test content"
 
 
-class TestImportSafety(unittest.TestCase):
+class TestImportSafety:
     """Test that all modules can be imported safely"""
     
     def test_core_imports(self):
@@ -196,17 +198,17 @@ class TestImportSafety(unittest.TestCase):
         try:
             from core.banner import show_banner
             from core.dispatch import dispatch_command
-            self.assertTrue(True, "Core modules imported successfully")
+            assert True, "Core modules imported successfully"
         except ImportError as e:
-            self.fail(f"Failed to import core modules: {e}")
+            pytest.fail(f"Failed to import core modules: {e}")
     
     def test_dropper_imports(self):
         """Test that dropper module imports without issues"""
         try:
             from modules.dropperlab.dropper import simulate_dropper, run_dropper
-            self.assertTrue(True, "Dropper module imported successfully")
+            assert True, "Dropper module imported successfully"
         except ImportError as e:
-            self.fail(f"Failed to import dropper module: {e}")
+            pytest.fail(f"Failed to import dropper module: {e}")
 
     def test_all_module_functions_exist(self):
         """Test that all expected functions exist in modules"""
@@ -227,67 +229,11 @@ class TestImportSafety(unittest.TestCase):
             try:
                 module = __import__(module_name, fromlist=functions)
                 for func_name in functions:
-                    self.assertTrue(hasattr(module, func_name), 
-                                  f"Function {func_name} missing from {module_name}")
+                    assert hasattr(module, func_name), f"Function {func_name} missing from {module_name}"
             except ImportError as e:
-                self.fail(f"Failed to import {module_name}: {e}")
+                pytest.fail(f"Failed to import {module_name}: {e}")
 
 
-def run_tests():
-    """Run all tests with detailed output"""
-    print("=" * 60)
-    print("EXILE-SAFEWORK FRAMEWORK TEST SUITE")
-    print("=" * 60)
-    print("Testing core functionality and safety boundaries...")
-    print()
-    
-    # Create test suite
-    loader = unittest.TestLoader()
-    suite = unittest.TestSuite()
-    
-    # Add test classes
-    test_classes = [
-        TestCoreBanner,
-        TestCoreDispatch,
-        TestDropperLab,
-        TestMainApplication,
-        TestSafetyChecks,
-        TestImportSafety
-    ]
-    
-    for test_class in test_classes:
-        tests = loader.loadTestsFromTestCase(test_class)
-        suite.addTests(tests)
-    
-    # Run tests with verbose output
-    runner = unittest.TextTestRunner(verbosity=2, stream=sys.stdout)
-    result = runner.run(suite)
-    
-    print("\n" + "=" * 60)
-    print("TEST SUMMARY")
-    print("=" * 60)
-    print(f"Tests run: {result.testsRun}")
-    print(f"Failures: {len(result.failures)}")
-    print(f"Errors: {len(result.errors)}")
-    
-    if result.failures:
-        print("\nFAILURES:")
-        for test, traceback in result.failures:
-            print(f"  - {test}: {traceback}")
-    
-    if result.errors:
-        print("\nERRORS:")
-        for test, traceback in result.errors:
-            print(f"  - {test}: {traceback}")
-    
-    if result.wasSuccessful():
-        print("\n✅ ALL TESTS PASSED! The framework is working correctly.")
-    else:
-        print("\n❌ Some tests failed. Please review the output above.")
-    
-    return result.wasSuccessful()
-
-
-if __name__ == "__main__":
-    success = run_tests()
-    sys.exit(0 if success else 1)
+# Note: This test file is now pytest-compatible.
+# Run with: pytest test.py
+# or just: pytest (to run all tests in the directory)
