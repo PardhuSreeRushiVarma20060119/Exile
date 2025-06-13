@@ -190,3 +190,10 @@ def endgame_menu():
         else:
             console.print("[!] Invalid option.", style="bold red")
             time.sleep(1)
+
+def run_endgame():
+    """Function to run endgame simulation - compatible with dispatch system"""
+    endgame_menu()
+
+if __name__ == "__main__":
+    run_endgame()

@@ -45,7 +45,8 @@ def save_payload(encoded_payload, filename="safe_payload.py"):
         f.write(decoded)
     print("[+] Payload saved (simulation only).")
 
-if __name__ == "__main__":
+def payload_menu():
+    """Function for payload menu - compatible with dispatch system"""
     print("=== Payload Laboratory ===")
     print("Select Payload Type:")
     print("1. Reverse Shell (Safe Sim)")
@@ -60,3 +61,6 @@ if __name__ == "__main__":
         save_payload(payload, "bind_sim_payload.py")
     else:
         print("[!] Invalid choice")
+
+if __name__ == "__main__":
+    payload_menu()

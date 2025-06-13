@@ -27,9 +27,13 @@ class Stage1:
         for entry in self.log:
             print(f" - {entry}")
 
-if __name__ == "__main__":
+def run_stage1():
+    """Function to run stage1 simulation - compatible with dispatch system"""
     print("=== Exile SafeWork: Stage 1 Emulator ===")
     stager = Stage1()
     stager.run_simulated_exploit()
     stager.drop_stage2_loader()
     stager.print_log()
+
+if __name__ == "__main__":
+    run_stage1()

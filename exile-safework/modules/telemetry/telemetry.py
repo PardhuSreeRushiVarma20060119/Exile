@@ -29,7 +29,8 @@ class Telemetry:
         for metric in self.metrics:
             print(f"[{metric['timestamp']}] CPU: {metric['cpu_usage']} | RAM: {metric['ram_usage']} | DISK: {metric['disk_activity']} | NET: {metric['net_activity']}")
 
-if __name__ == "__main__":
+def telemetry_menu():
+    """Function for telemetry menu - compatible with dispatch system"""
     print("=== Exile SafeWork: Telemetry Simulator ===")
     t = Telemetry()
     while True:
@@ -45,3 +46,6 @@ if __name__ == "__main__":
             break
         else:
             print("[!] Invalid selection")
+
+if __name__ == "__main__":
+    telemetry_menu()

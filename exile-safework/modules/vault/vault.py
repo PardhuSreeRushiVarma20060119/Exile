@@ -60,3 +60,30 @@ if __name__ == "__main__":
             break
         else:
             print("[!] Invalid choice.")
+
+def vault_menu():
+    """Function for vault menu - compatible with dispatch system"""
+    print("=== Exile SafeWork: Vault Emulator ===")
+    vault = Vault()
+    while True:
+        print("\n1. Store Item")
+        print("2. List Vault Items")
+        print("3. Retrieve Item")
+        print("4. Exit")
+        choice = input("Select option: ")
+        if choice == '1':
+            name = input("Item name: ")
+            content = input("Item content: ")
+            vault.store_item(name, content)
+        elif choice == '2':
+            vault.list_items()
+        elif choice == '3':
+            fname = input("Filename to retrieve: ")
+            vault.retrieve_item(fname)
+        elif choice == '4':
+            break
+        else:
+            print("[!] Invalid choice.")
+
+if __name__ == "__main__":
+    vault_menu()

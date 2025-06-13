@@ -60,3 +60,10 @@ def monitor_guard():
         else:
             print("[!] Invalid option.")
             time.sleep(1)
+
+def guard_menu():
+    """Function for guard menu - compatible with dispatch system"""
+    monitor_guard()
+
+if __name__ == "__main__":
+    guard_menu()

@@ -55,3 +55,10 @@ def dashboard_loop():
         elif choice != "r":
             print("[!] Invalid option.")
             time.sleep(1)
+
+def dashboard_menu():
+    """Function for dashboard menu - compatible with dispatch system"""
+    dashboard_loop()
+
+if __name__ == "__main__":
+    dashboard_menu()

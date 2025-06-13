@@ -61,3 +61,29 @@ if __name__ == "__main__":
             break
         else:
             print("[!] Invalid option")
+
+def session_menu():
+    """Function for session menu - compatible with dispatch system"""
+    print("=== Exile SafeWork: Shared Session Manager ===")
+    while True:
+        print("\n1. Create New Session")
+        print("2. List Sessions")
+        print("3. Terminate Session")
+        print("4. Exit")
+        choice = input("Select an option: ")
+
+        if choice == '1':
+            typ = input("Enter session type (reverse_shell/bind_shell/etc): ")
+            create_session(typ)
+        elif choice == '2':
+            list_sessions()
+        elif choice == '3':
+            sid = input("Enter session ID to terminate: ")
+            terminate_session(sid)
+        elif choice == '4':
+            break
+        else:
+            print("[!] Invalid option")
+
+if __name__ == "__main__":
+    session_menu()

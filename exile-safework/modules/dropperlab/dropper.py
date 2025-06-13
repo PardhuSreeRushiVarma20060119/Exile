@@ -66,6 +66,10 @@ def dropper_menu():
 
     simulate_dropper(payload, dest_dir)
 
+def run_dropper():
+    """Wrapper function for compatibility with dispatch system"""
+    dropper_menu()
+
 if __name__ == "__main__":
     dropper_menu()
     print("\n[+] Dropper simulation complete.")
