@@ -1,0 +1,14 @@
+Source: exile-safework
+Section: utils
+Priority: optional
+Maintainer: Pardhu Varma 
+Build-Depends: debhelper-compat (= 13), python3-all, dh-python
+Standards-Version: 4.5.0
+Homepage: https://github.com/PardhuSreeRushiVarma20060119/Exile
+
+Package: exile-safework
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3-rich, python3-pycryptodome
+Description: Safe Red Team Simulation Tool - Exile-SafeWork
+ A modular, safe red-team simulation framework for lab/testing usage only.
+

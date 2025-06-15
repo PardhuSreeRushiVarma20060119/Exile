@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Fri, 13 Jun 2025 22:11:31 +0530
+Source: exile-safework
+Binary: exile-safework
+Architecture: source all
+Version: 1.0.0-1
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Pardhu Varma
+Changed-By: zenrage-a1105 <zenrage-a1105@zensys>
+Description:
+ exile-safework - Safe Red Team Simulation Tool - Exile-SafeWork
+Changes:
+ exile-safework (1.0.0-1) UNRELEASED; urgency=medium
+ .
+   * Initial release. (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1:
+ cc833a3315dde978bcb6765504d2937d1fb54e58 910 exile-safework_1.0.0-1.dsc
+ 52f266dae93930e3ed49886c6ff291de8cec6923 4898374 exile-safework_1.0.0.orig.tar.gz
+ f3ccae05ad3765c450eb68a5d7f10cb1cc4df62f 9932 exile-safework_1.0.0-1.debian.tar.xz
+ a3e7627e5c834fe664f75917c5004b5e6a6b1342 3280 exile-safework_1.0.0-1_all.deb
+ 5dc86c13c87b2a6c86dde73706a52d9ee3359689 5766 exile-safework_1.0.0-1_amd64.buildinfo
+Checksums-Sha256:
+ 47de84a2a4802a49ca7206706a18232b3a1e5b36b0aae19844561c1c4351f8f4 910 exile-safework_1.0.0-1.dsc
+ 3a2d9f2da88868148da5c5bf9d59cbb95c7ddc3e4e03bb30142a87e8319b1823 4898374 exile-safework_1.0.0.orig.tar.gz
+ fd48e5b281ebd072dd697efe4e0e8768fff83017fb896bc4db09b335df85dd05 9932 exile-safework_1.0.0-1.debian.tar.xz
+ a492a4e43e6aadf0f80db8bbde215f95009bd5eef24c62f15c9367e98afdb208 3280 exile-safework_1.0.0-1_all.deb
+ 4f66f822429f37b05c9ef7c26773992b1e8aab91490b777571a5bcc889d1629e 5766 exile-safework_1.0.0-1_amd64.buildinfo
+Files:
+ 200fe235c4d8c2d95682f4811fa3f7a0 910 utils optional exile-safework_1.0.0-1.dsc
+ dddfd25123b64c405a4a7e5cb4db7672 4898374 utils optional exile-safework_1.0.0.orig.tar.gz
+ 862529d6e5902f7306d699ff0f6227ed 9932 utils optional exile-safework_1.0.0-1.debian.tar.xz
+ fba854802e0776a02f5e6cf6b17cab6c 3280 utils optional exile-safework_1.0.0-1_all.deb
+ 7c4ce37b1e3be3eeef6ef1dae56dbaa8 5766 utils optional exile-safework_1.0.0-1_amd64.buildinfo

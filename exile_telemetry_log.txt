@@ -1,0 +1,1 @@
+[2025-06-13 19:21:08] ALERT: Parent-child process anomaly: msword.exe → rundll32.exe

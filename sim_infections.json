@@ -1,0 +1,17 @@
+[
+    {
+        "pid": "2234",
+        "technique": "Process Hollowing",
+        "timestamp": "2025-06-13 19:15:50"
+    },
+    {
+        "pid": "4561",
+        "technique": "DLL Injection",
+        "timestamp": "2025-06-13 19:16:07"
+    },
+    {
+        "pid": "N/A",
+        "technique": "In-Memory Execution",
+        "timestamp": "2025-06-13 19:16:16"
+    }
+]

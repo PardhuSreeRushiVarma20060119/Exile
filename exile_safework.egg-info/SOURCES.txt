@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+exile_safework.egg-info/PKG-INFO
+exile_safework.egg-info/SOURCES.txt
+exile_safework.egg-info/dependency_links.txt
+exile_safework.egg-info/entry_points.txt
+exile_safework.egg-info/requires.txt
+exile_safework.egg-info/top_level.txt

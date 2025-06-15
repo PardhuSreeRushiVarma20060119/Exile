@@ -1,0 +1,9 @@
+ dpkg-buildpackage -us -uc -ui
+dpkg-buildpackage: info: source package exile-safework
+dpkg-buildpackage: info: source version 1.0.0-1
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by zenrage-a1105 <zenrage-a1105@unknown>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+dpkg-source: error: source package name 'exile-safework/exile-safework' is illegal: character '/' not allowed
+dpkg-buildpackage: error: dpkg-source --before-build . subprocess returned exit status 25

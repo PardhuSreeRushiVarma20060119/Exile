@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: exile-safework
+Version: 1.0.0
+License-File: LICENSE
+Requires-Dist: rich
+Requires-Dist: pycryptodome
+Dynamic: license-file
+Dynamic: requires-dist

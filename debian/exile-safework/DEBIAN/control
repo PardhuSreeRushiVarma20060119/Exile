@@ -1,0 +1,11 @@
+Package: exile-safework
+Version: 1.0.0-1
+Architecture: all
+Maintainer: Pardhu Varma
+Installed-Size: 20
+Depends: python3-rich, python3-pycryptodome
+Section: utils
+Priority: optional
+Homepage: https://github.com/PardhuSreeRushiVarma20060119/Exile
+Description: Safe Red Team Simulation Tool - Exile-SafeWork
+ A modular, safe red-team simulation framework for lab/testing usage only.
