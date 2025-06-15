@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
 
 setup(
-<<<<<<< HEAD:exile-safework/setup.py
     name='exile-safework',
     version='1.0.4',
     author='PardhuSreeRushiVarma',
@@ -26,19 +25,4 @@ setup(
         'Topic :: Security',
     ],
     python_requires='>=3.7',
-=======
-    name="exile-safework",
-    version="1.0.0",
-    packages=find_packages(),
-    include_package_data=True,
-    install_requires=[
-        "rich",
-        "pycryptodome"
-    ],
-    entry_points={
-        'console_scripts': [
-            'exile = exile:main'
-        ],
-    },
->>>>>>> f0d56ee (Full Build):setup.py
 )
