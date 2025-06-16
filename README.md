@@ -62,8 +62,8 @@ If you’re looking to extend this into more advanced frameworks, use this respo
 ## 🔧 Requirements
 
 - Python 3.8+
-- Platform: Windows/Linux
-- No external dependencies (all standard libraries)
+- Platform: Linux
+- No external dependencies (all standard python libraries)
 
 ---
 
