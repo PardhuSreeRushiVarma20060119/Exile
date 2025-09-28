@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='exile-safework',
+    name='exile',
     version='1.0.4',
     author='PardhuSreeRushiVarma',
-    description='Exile-SafeWork: A simulated red-team framework for educational and research use only.',
+    description='Exile: A simulated red-team framework for educational and research use only.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     packages=find_packages(include=['core', 'modules', 'modules.*']),
