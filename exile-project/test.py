@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test suite for Exile-SafeWork Framework
+Test suite for Exile Framework
 Tests the core functionality and modules without executing real malicious operations
 """
 
