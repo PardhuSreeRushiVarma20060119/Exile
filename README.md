@@ -59,7 +59,7 @@ If you’re looking to extend this into more advanced frameworks, use this respo
 
 ```bash
 git clone https://github.com/PardhuSreeRushiVarma20060119/Exile.git
-cd exile-safework
+cd exile-project
 python exile.py
 ```
 
