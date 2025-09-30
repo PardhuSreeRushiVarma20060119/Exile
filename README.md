@@ -103,7 +103,5 @@ exile-safework/
 This project is released under the **MIT License** and does **NOT** contain any dangerous or offensive code.
 
 ---
-> 🧪 If you’d like a more advanced **Exile Framework**, consider building from this base—but always follow ethical hacking principles.
----
 
 <p align="center"> <i>"Cybersecurity Without Ethics and Morality is Chaos, Be Responsible, Be Human”</i> </p>
