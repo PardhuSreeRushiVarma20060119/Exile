@@ -41,9 +41,7 @@
 
 ## 🚫 Legal Notice
 
-> **This is a SAFEWORK variant. There are NO working exploits, shellcode, or malicious behavior. This tool is designed for educational purposes ONLY.**
-
-If you’re looking to extend this into more advanced frameworks, use this responsibly and **never test on unauthorized systems.**
+> **This is a emulated variant. There are NO working exploits, shellcode, or malicious behavior. This tool is designed for educational & demonstration purposes ONLY.**
 
 ---
 
