@@ -98,16 +98,6 @@ exile-safework/
 
 ---
 
-## ❤️ Credits
-
-Created with love for:
-- Ethical Hackers
-- Cybersecurity Learners
-- Red Team Framework Designers
-- CTF and Emulation Labs
-
----
-
 ## 🌐 License
 
 This project is released under the **MIT License** and does **NOT** contain any dangerous or offensive code.
